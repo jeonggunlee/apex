@@ -1,3 +1,33 @@
+## My Note
+설치에 다음 두 Issue를 참고하고 작성함
+
+
+https://github.com/asyml/texar/issues/280
+```
+git clone https://github.com/asyml/texar.git
+cd texar
+pip install .
+```
+
+https://github.com/NVIDIA/apex/pull/323
+```
+commenting out as said in #323 (comment) worked for me too..
+
+# if (bare_metal_major != torch_binary_major) or (bare_metal_minor != torch_binary_minor):
+#     raise RuntimeError("Cuda extensions are being compiled with a version of Cuda that does " +
+#                        "not match the version used to compile Pytorch binaries.  " +
+#                        "Pytorch binaries were compiled with Cuda {}.\n".format(torch.version.cuda) +
+#                        "In some cases, a minor-version mismatch will not cause later errors:  " +
+#                        "https://github.com/NVIDIA/apex/pull/323#discussion_r287021798.  "
+#                        "You can try commenting out this check (at your own risk).")
+just comment out this "if loop" in setup.py
+
+I have cuda 10.1 and torch 1.5.1
+I don't face any problem as such.
+```
+
+
+
 # Introduction
 
 This repository holds NVIDIA-maintained utilities to streamline
